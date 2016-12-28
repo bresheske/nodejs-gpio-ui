@@ -1,0 +1,38 @@
+{
+  "name": "nodejs-gpio-ui",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "latest",
+    "@angular/compiler": "latest",
+    "@angular/compiler-cli": "latest",
+    "@angular/core": "latest",
+    "@angular/forms": "latest",
+    "@angular/http": "latest",
+    "@angular/platform-browser": "latest",
+    "@angular/platform-browser-dynamic": "latest",
+    "@angular/router": "latest",
+    "@angular/upgrade": "latest",
+    "core-js": "latest",
+    "reflect-metadata": "latest",
+    "rxjs": "latest",
+    "systemjs": "latest",
+    "zone.js": "latest",
+    "angular2-in-memory-web-api": "latest",
+    "jquery": "latest",
+    "bootstrap": "latest",
+	
+	"concurrently": "latest",
+    "lite-server": "latest",
+    "typescript": "latest",
+    "typings":"latest"
+  }
+}

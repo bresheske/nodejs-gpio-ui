@@ -9,18 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var switches_service_1 = require("./services/switches.service");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(switchService) {
+        this.service = switchService;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.switches = this.service.getSwitches();
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
         templateUrl: './app/app.component.html',
-        styleUrls: ['./app/app.component.css']
+        styleUrls: ['./app/app.component.css'],
+        providers: [switches_service_1.SwitchesService]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [switches_service_1.SwitchesService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

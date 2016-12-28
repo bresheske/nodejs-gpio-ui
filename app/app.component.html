@@ -1,2 +1,5 @@
-<p>TEST MY SHIT</p>
-
+<div class="row">
+    <div *ngFor="let switch of switches" class="col-sm-3">
+        <switch [switch]="switch"></switch>
+    </div>
+</div>

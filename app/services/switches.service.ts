@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -10,7 +10,10 @@ export class SwitchesService {
 
     // List of IPs and GPIO Pins.
     private switches : Array<any> = [
-        { IP : '192.168.1.150', Pin: 23, Name: 'Stairwell' }
+        { IP: '192.168.1.151', Pin: 23, Name: 'Front Outside Lights' },
+	{ IP: '192.168.1.151', Pin: 24, Name: 'Front Garage Lights' },
+	{ IP: '192.168.1.151', Pin: 25, Name: 'Stairwell Lights' },
+	{ IP: '192.168.1.152', Pin: 23, Name: 'Master Bedroom Lights' }
     ];
 
     constructor(http: Http) {

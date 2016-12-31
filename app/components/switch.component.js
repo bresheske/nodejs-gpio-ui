@@ -16,10 +16,11 @@ var SwitchComponent = (function () {
     }
     SwitchComponent.prototype.ngOnInit = function () {
         this.checkSwitch();
+        this.class = "btn btn-info btn-block";
     };
     SwitchComponent.prototype.updateSwitch = function (status) {
         this.switch.status = status;
-        this.class = "btn btn-";
+        this.class = "btn btn-block btn-";
         this.class += this.switch.status ? 'success' : 'danger';
     };
     SwitchComponent.prototype.checkSwitch = function () {
@@ -51,7 +52,8 @@ SwitchComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'switch',
-        templateUrl: 'switch.component.html'
+        templateUrl: 'switch.component.html',
+        styleUrls: ['./switch.component.css']
     }),
     __metadata("design:paramtypes", [switches_service_1.SwitchesService])
 ], SwitchComponent);

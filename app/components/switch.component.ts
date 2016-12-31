@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Rx';
 @Component({
     moduleId: module.id,
     selector: 'switch',
-    templateUrl: 'switch.component.html'
+    templateUrl: 'switch.component.html',
+    styleUrls: ['./switch.component.css']
 })
 export class SwitchComponent implements OnInit {
     @Input() public switch: any;
@@ -18,11 +19,12 @@ export class SwitchComponent implements OnInit {
 
     ngOnInit() { 
         this.checkSwitch();
+        this.class = "btn btn-info btn-block";
     }
 
     public updateSwitch(status: boolean) {
         this.switch.status = status;
-        this.class = "btn btn-";
+        this.class = "btn btn-block btn-";
         this.class += this.switch.status ? 'success' : 'danger';
     }
 

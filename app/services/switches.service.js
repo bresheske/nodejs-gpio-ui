@@ -16,7 +16,10 @@ var SwitchesService = (function () {
     function SwitchesService(http) {
         // List of IPs and GPIO Pins.
         this.switches = [
-            { IP: '192.168.1.150', Pin: 23, Name: 'Stairwell' }
+            { IP: '192.168.1.151', Pin: 23, Name: 'Front Outside Lights' },
+            { IP: '192.168.1.151', Pin: 24, Name: 'Front Garage Lights' },
+            { IP: '192.168.1.151', Pin: 25, Name: 'Stairwell Lights' },
+            { IP: '192.168.1.152', Pin: 23, Name: 'Master Bedroom Lights' }
         ];
         this.http = http;
     }

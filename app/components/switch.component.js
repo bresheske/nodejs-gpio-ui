@@ -10,13 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var switches_service_1 = require("../services/switches.service");
+var Rx_1 = require("rxjs/Rx");
+require("rxjs/add/observable/timer");
 var SwitchComponent = (function () {
     function SwitchComponent(switchService) {
         this.service = switchService;
     }
     SwitchComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.checkSwitch();
         this.class = "btn btn-info btn-block";
+        this.timer = Rx_1.Observable.timer(5000, 5000);
+        this.timer.subscribe(function (t) {
+            _this.checkSwitch();
+        });
     };
     SwitchComponent.prototype.updateSwitch = function (status) {
         this.switch.status = status;
@@ -26,8 +33,6 @@ var SwitchComponent = (function () {
     SwitchComponent.prototype.checkSwitch = function () {
         var _this = this;
         this.service.checkStatus(this.switch.IP, this.switch.Pin).subscribe(function (data) {
-            console.dir(data);
-            console.log("Checkstatus Completed.");
             _this.updateSwitch(data.status);
         }, function (error) {
             console.error(error);
@@ -36,7 +41,6 @@ var SwitchComponent = (function () {
     SwitchComponent.prototype.toggleSwitch = function () {
         var _this = this;
         this.service.toggleStatus(this.switch.IP, this.switch.Pin).subscribe(function (data) {
-            console.log("Togglestatus Completed.");
             _this.updateSwitch(data.status);
         }, function (error) {
             console.error(error);

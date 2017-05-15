@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SwitchesService } from '../services/switches.service';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/observable/timer';
 
 @Component({
     moduleId: module.id,
@@ -12,6 +13,7 @@ export class SwitchComponent implements OnInit {
     @Input() public switch: any;
     private service : SwitchesService;
     private class : string;
+    private timer;
 
     constructor(switchService: SwitchesService) { 
         this.service = switchService;
@@ -20,6 +22,10 @@ export class SwitchComponent implements OnInit {
     ngOnInit() { 
         this.checkSwitch();
         this.class = "btn btn-info btn-block";
+        this.timer = Observable.timer(5000, 5000);
+        this.timer.subscribe(t => {
+            this.checkSwitch();
+        });
     }
 
     public updateSwitch(status: boolean) {
@@ -30,8 +36,6 @@ export class SwitchComponent implements OnInit {
 
     public checkSwitch() : void {
         this.service.checkStatus(this.switch.IP, this.switch.Pin).subscribe(data => {
-            console.dir(data);
-            console.log("Checkstatus Completed.");
             this.updateSwitch(data.status);
         }, 
         error => {
@@ -42,7 +46,6 @@ export class SwitchComponent implements OnInit {
 
     public toggleSwitch() : void {
         this.service.toggleStatus(this.switch.IP, this.switch.Pin).subscribe(data => {
-            console.log("Togglestatus Completed.");
             this.updateSwitch(data.status);
         }, 
         error => {

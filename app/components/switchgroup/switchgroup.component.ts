@@ -32,8 +32,8 @@ export class SwitchGroupComponent implements OnInit {
     ngOnInit() { 
         this.checkSwitch();
         this.checkFan();
-        this.switchclass = "fa fa-2x fa-power-off";
-        this.fanclass = "fa fa-2x fa-gear";
+        this.switchclass = "fa fa-3x fa-power-off";
+        this.fanclass = "fa fa-3x fa-gear";
         this.timer = Observable.timer(this.TIMER, this.TIMER);
         this.timer.subscribe(t => {
             this.checkSwitch();
@@ -43,7 +43,7 @@ export class SwitchGroupComponent implements OnInit {
 
     public updateFan(status: boolean) {
         this.fanstatus = status;
-        this.fanclass = "fa fa-2x fa-gear ";
+        this.fanclass = "fa fa-3x fa-gear ";
         this.fanclass += this.fanstatus ? 'on' : 'off';
     }
 
@@ -59,7 +59,7 @@ export class SwitchGroupComponent implements OnInit {
 
     public updateSwitch(status: boolean) {
         this.switchstatus = status;
-        this.switchclass = "fa fa-2x fa-power-off ";
+        this.switchclass = "fa fa-3x fa-power-off ";
         this.switchclass += this.switchstatus ? 'on' : 'off';
     }
 

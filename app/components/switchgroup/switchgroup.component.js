@@ -21,8 +21,8 @@ var SwitchGroupComponent = (function () {
         var _this = this;
         this.checkSwitch();
         this.checkFan();
-        this.switchclass = "fa fa-2x fa-power-off";
-        this.fanclass = "fa fa-2x fa-gear";
+        this.switchclass = "fa fa-3x fa-power-off";
+        this.fanclass = "fa fa-3x fa-gear";
         this.timer = Rx_1.Observable.timer(this.TIMER, this.TIMER);
         this.timer.subscribe(function (t) {
             _this.checkSwitch();
@@ -31,7 +31,7 @@ var SwitchGroupComponent = (function () {
     };
     SwitchGroupComponent.prototype.updateFan = function (status) {
         this.fanstatus = status;
-        this.fanclass = "fa fa-2x fa-gear ";
+        this.fanclass = "fa fa-3x fa-gear ";
         this.fanclass += this.fanstatus ? 'on' : 'off';
     };
     SwitchGroupComponent.prototype.checkFan = function () {
@@ -44,7 +44,7 @@ var SwitchGroupComponent = (function () {
     };
     SwitchGroupComponent.prototype.updateSwitch = function (status) {
         this.switchstatus = status;
-        this.switchclass = "fa fa-2x fa-power-off ";
+        this.switchclass = "fa fa-3x fa-power-off ";
         this.switchclass += this.switchstatus ? 'on' : 'off';
     };
     SwitchGroupComponent.prototype.checkSwitch = function () {

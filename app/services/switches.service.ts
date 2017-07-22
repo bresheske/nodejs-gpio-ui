@@ -8,20 +8,8 @@ import 'rxjs/add/operator/catch';
 export class SwitchesService {
     private http : Http;
 
-    // List of IPs and GPIO Pins.
-    private switches : Array<any> = [
-        { IP: '192.168.1.151', Pin: 23, Name: 'Front Outside Lights' },
-        { IP: '192.168.1.151', Pin: 24, Name: 'Front Garage Lights' },
-        { IP: '192.168.1.151', Pin: 25, Name: 'Stairwell Lights' },
-        { IP: '192.168.1.152', Pin: 23, Name: 'Master Bedroom Lights' }
-    ];
-
     constructor(http: Http) {
         this.http = http;
-    }
-
-    public getSwitches() : Array<any> {
-        return this.switches;
     }
 
     public checkStatus(ip:string, pinid: number) {

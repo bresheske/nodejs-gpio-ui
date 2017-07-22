@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var switches_service_1 = require("../services/switches.service");
+var switches_service_1 = require("../../services/switches.service");
 var Rx_1 = require("rxjs/Rx");
 require("rxjs/add/observable/timer");
 var SwitchComponent = (function () {
@@ -26,13 +26,13 @@ var SwitchComponent = (function () {
         });
     };
     SwitchComponent.prototype.updateSwitch = function (status) {
-        this.switch.status = status;
+        this.status = status;
         this.class = "btn btn-block btn-";
-        this.class += this.switch.status ? 'success' : 'danger';
+        this.class += this.status ? 'success' : 'danger';
     };
     SwitchComponent.prototype.checkSwitch = function () {
         var _this = this;
-        this.service.checkStatus(this.switch.IP, this.switch.Pin).subscribe(function (data) {
+        this.service.checkStatus(this.ip, this.pin).subscribe(function (data) {
             _this.updateSwitch(data.status);
         }, function (error) {
             console.error(error);
@@ -40,7 +40,7 @@ var SwitchComponent = (function () {
     };
     SwitchComponent.prototype.toggleSwitch = function () {
         var _this = this;
-        this.service.toggleStatus(this.switch.IP, this.switch.Pin).subscribe(function (data) {
+        this.service.toggleStatus(this.ip, this.pin).subscribe(function (data) {
             _this.updateSwitch(data.status);
         }, function (error) {
             console.error(error);
@@ -50,8 +50,16 @@ var SwitchComponent = (function () {
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Object)
-], SwitchComponent.prototype, "switch", void 0);
+    __metadata("design:type", String)
+], SwitchComponent.prototype, "ip", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], SwitchComponent.prototype, "pin", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], SwitchComponent.prototype, "name", void 0);
 SwitchComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

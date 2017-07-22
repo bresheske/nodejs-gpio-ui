@@ -1,0 +1,22 @@
+.fa {
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.title {
+    font-size:20px;
+    font-weight:bold;
+    color:#aaa;
+}
+
+.panel {
+    background-color: #333;
+}
+
+.on {
+    color: #8F8;
+}
+
+.off {
+    color: #888;
+}

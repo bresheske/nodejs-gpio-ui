@@ -1,12 +1,12 @@
-<div class="col-md-6">
+<div class="col-md-6" (click)="toggleSwitch()">
     <div class="panel">
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12">
                     <span class="pull-left title">{{name}}</span>
                     <span class="pull-right">
-                        <i [class]="switchclass" (click)="toggleSwitch()"></i>
-                        <i [class]="fanclass" (click)="toggleFan()"></i>
+                        <i [class]="switchclass" (click)="toggleSwitch();$event.stopPropagation()"></i>
+                        <i [class]="fanclass" (click)="toggleFan();$event.stopPropagation()"></i>
                     </span>
                 </div>
             </div>

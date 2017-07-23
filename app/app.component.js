@@ -11,11 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var switches_service_1 = require("./services/switches.service");
 var AppComponent = (function () {
-    function AppComponent(switchService) {
-        this.service = switchService;
+    function AppComponent() {
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.switches = this.service.getSwitches();
     };
     return AppComponent;
 }());
@@ -26,7 +24,7 @@ AppComponent = __decorate([
         styleUrls: ['./app/app.component.css'],
         providers: [switches_service_1.SwitchesService]
     }),
-    __metadata("design:paramtypes", [switches_service_1.SwitchesService])
+    __metadata("design:paramtypes", [])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

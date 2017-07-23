@@ -9,14 +9,10 @@ import { SwitchesService } from './services/switches.service';
 })
 export class AppComponent 
 {
-  private switches : Array<any>;
-  private service : SwitchesService;
 
-  constructor(switchService: SwitchesService) {
-    this.service = switchService;
+  constructor() {
   }
 
   ngOnInit() {
-    this.switches = this.service.getSwitches();
   }
 }

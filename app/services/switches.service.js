@@ -14,18 +14,8 @@ require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
 var SwitchesService = (function () {
     function SwitchesService(http) {
-        // List of IPs and GPIO Pins.
-        this.switches = [
-            { IP: '192.168.1.151', Pin: 23, Name: 'Front Outside Lights' },
-            { IP: '192.168.1.151', Pin: 24, Name: 'Front Garage Lights' },
-            { IP: '192.168.1.151', Pin: 25, Name: 'Stairwell Lights' },
-            { IP: '192.168.1.152', Pin: 23, Name: 'Master Bedroom Lights' }
-        ];
         this.http = http;
     }
-    SwitchesService.prototype.getSwitches = function () {
-        return this.switches;
-    };
     SwitchesService.prototype.checkStatus = function (ip, pinid) {
         return this.http.post("http://" + ip + "/getStatus", { id: pinid })
             .map(function (res) { return res.json(); });

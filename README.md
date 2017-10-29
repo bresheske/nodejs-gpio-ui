@@ -1,3 +1,5 @@
+**nodejs-gpio-ui is deprecated. Use [the angular-cli version instead](https://github.com/bresheske/ng-gpioui) instead.**
+
 # nodejs-gpio-ui
 This is the UI (web) for the nodejs-gpio-api project.  
 
